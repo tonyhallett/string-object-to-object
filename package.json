@@ -1,0 +1,25 @@
+{
+  "name": "string-object-to-object",
+  "version": "1.0.0",
+  "description": "Parse object in string format to a javascript object",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "jest",
+    "test:cov": "jest --coverage",
+    "tsc": "node ./node_modules/typescript/bin/tsc"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.1.2",
+    "jest": "^25.1.0",
+    "ts-jest": "^25.2.0",
+    "typescript": "^3.7.5"
+  },
+  "author": "Tony Hallett",
+  "homepage":"https://github.com/tonyhallett/string-object-to-object#readme",
+  "repository":"github:tonyhallett/string-object-to-object",
+  "license": "ISC",
+  "keywords":["parser","object"]
+}
