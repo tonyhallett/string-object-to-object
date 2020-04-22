@@ -372,6 +372,14 @@ y",
           prop1:+0_1_2
         }
       }, 
+      {
+        description:'0',
+        stringObject:`prop1: 0}`,
+        expectedResult:{
+          prop1:0
+        },
+        only:true
+      },
       //#endregion
       //#region floats
       {
@@ -609,20 +617,23 @@ y",
         },
       },
     ]
-    executeSkipOnlyTests(completionTests,(test) => {
-      const toParse = test.stringObject;
-      const toParseLength = toParse.length;
-      const stringToObjectParser = new StringToObjectParser();
-      for (var x = 0, c=''; c = toParse.charAt(x); x++) { 
-        const result = stringToObjectParser.process(c);
-        if(x<toParseLength-1){
-          expect(result).toBe(ProcessResult.Continue);
-        }else{
-          expect(result).toBe(ProcessResult.Completed);
+    describe('non big int', () => {
+      executeSkipOnlyTests(completionTests,(test) => {
+        const toParse = test.stringObject;
+        const toParseLength = toParse.length;
+        const stringToObjectParser = new StringToObjectParser();
+        for (var x = 0, c=''; c = toParse.charAt(x); x++) { 
+          const result = stringToObjectParser.process(c);
+          if(x<toParseLength-1){
+            expect(result).toBe(ProcessResult.Continue);
+          }else{
+            expect(result).toBe(ProcessResult.Completed);
+          }
         }
-      }
-      expect(stringToObjectParser.getCompleted()).toEqual(test.expectedResult);
+        expect(stringToObjectParser.getCompleted()).toEqual(test.expectedResult);
+      })
     })
+    
   })
   describe('failing tests', () => {
     interface FailingTest{

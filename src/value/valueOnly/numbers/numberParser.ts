@@ -57,7 +57,8 @@ export class NumberParser implements IValueOnlyParser{
     if(processor){
       return processor.bind(this)(char);
     }
-    return ProcessResult.Break;
+    this.result= {delimitingChar:char, value:0}
+    return ProcessResult.Completed;
   }
   private processFloatOrDecimal(numberChar:'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'):ProcessResult{
     //so is either 08, 09, 1,2,3,4,5,6,7,8,9 ( not 0_)
