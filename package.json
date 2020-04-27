@@ -1,6 +1,6 @@
 {
   "name": "string-object-to-object",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Parse object in string format to a javascript object",
   "main": "dist/index.js",
   "files": [

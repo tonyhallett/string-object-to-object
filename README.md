@@ -7,7 +7,10 @@ Comments and whitespace in the string are ignored.
 
 ## Two apis
 
-a) stringToObject
+a) stringToObject / stringToAny
+
+stringToObject is to be used if you expect the string to only be an object.
+It will throw an error with message 'String is not an object' if not an object.
 
 ```typescript
 const example = stringToObject(`{
@@ -45,6 +48,13 @@ ultiline',
       nestedObject:{nested1:'one'}
     }`);
 
+```
+
+stringToAny will work with any allowed type represented as a string.
+It will throw error with message 'Malformed' if malformed.
+
+```typescript
+const example = stringToAny(`[1,'Two',true,{p:'v'}]`)';
 ```
 
 b) StringToObjectParser
